@@ -26,23 +26,23 @@ Steps to run the Single-thread and Multi-thread portions of the project:
 
 Steps to run the MapReduce portion of the project:
 1) Make directories for the Assignment3Main.java and it's input files
-	yourName@zoidberg:~$ hadoop fs -mkdir /user/yourName/Project415
-	yourName@zoidberg:~$ hadoop fs -mkdir /user/yourName/Project415/input	
+	hadoop fs -mkdir /user/yourName/Project415
+	hadoop fs -mkdir /user/yourName/Project415/input	
 2) Move the input files into their directory.
-	yourName@zoidberg:~$ hadoop fs -copyFromLocal /home/yourName/input1 /user/yourName/Project415/input/input1
-	yourName@zoidberg:~$ hadoop fs -copyFromLocal /home/yourName/input2 /user/yourName/Project415/input/input2
+	hadoop fs -copyFromLocal /home/yourName/input1 /user/yourName/Project415/input/input1
+	hadoop fs -copyFromLocal /home/yourName/input2 /user/yourName/Project415/input/input2
 	...
-	yourName@zoidberg:~$ hadoop fs -copyFromLocal /home/yourName/input63 /user/yourName/Project415/input/input63
+	hadoop fs -copyFromLocal /home/yourName/input63 /user/yourName/Project415/input/input63
 
 3) Compile the files
-	yourName@zoidberg:~$ hadoop com.sun.tools.javac.Main MapReduceAlg1.java
-	yourName@zoidberg:~$ hadoop com.sun.tools.javac.Main MapReduceAlg2.java
+	hadoop com.sun.tools.javac.Main MapReduceAlg1.java
+	hadoop com.sun.tools.javac.Main MapReduceAlg2.java
 4) Move the jar file
-	yourName@zoidberg:~$ jar cf wc.jar MapReuceAlg1*.class
-	yourName@zoidberg:~$ jar cf wc.jar MapReuceAlg2*.class
-5) Run the file**
-	yourName@zoidberg:~$ hadoop jar wc.jar Assignment3Main /user/nstowman/Project415/input /user/nstowman/Project415/output_single
-	yourName@zoidberg:~$ hadoop jar wc.jar Assignment3Main /user/nstowman/Project415/input /user/nstowman/Project415/output_multi
+	jar cf wc.jar MapReuceAlg1*.class
+	jar cf wc.jar MapReuceAlg2*.class
+5) Run the file
+	hadoop jar wc.jar MapReduceAlg1 /user/nstowman/Project415/input /user/nstowman/Project415/output_single
+	hadoop jar wc.jar MapReduceAlg2 /user/nstowman/Project415/input /user/nstowman/Project415/output_multi
 6) Look at your output
-	yourName@zoidberg:~$ hadoop fs -cat /user/nstowman/Project415/output_single/part-00000
-	yourName@zoidberg:~$ hadoop fs -cat /user/nstowman/Project415/output_multi/part-00000
+	hadoop fs -cat /user/nstowman/Project415/output_single/part-00000
+	hadoop fs -cat /user/nstowman/Project415/output_multi/part-00000
